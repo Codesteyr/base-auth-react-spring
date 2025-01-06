@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import UserService from '../../services/UserService';
 import { useNavigate } from 'react-router-dom';
+import { useStateContext } from "../../contexts/ContextProvider";
 
 function RegistrationPage() {
     const navigate = useNavigate();
     const [error, setError] = useState('')
     const [errors, setErrors] = useState({});
+    const { setUser, setToken } = useStateContext();
 
     const [formData, setFormData] = useState({
         name: '',
@@ -33,15 +35,14 @@ function RegistrationPage() {
             });
 
             if (userData.token) {
-                localStorage.setItem('token', userData.token);
-                localStorage.setItem('role', userData.role);
-                navigate('/profile');
+                setToken(userData.token); 
+                setUser({ ...userData });
+                navigate('/dashboard');
             } else {
                 setError(userData.message);
             }
         } catch (err) {
             if (err.response && err.response.status === 400) {
-                // Обрабатываем ошибки валидации
                 setErrors(err.response.data);
             } else {
                 console.error('Error registering user:', err);

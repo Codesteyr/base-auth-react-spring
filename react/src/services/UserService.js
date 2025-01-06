@@ -1,6 +1,7 @@
 import axios from "axios";
 
 class UserService {
+
     static BASE_URL = "http://192.168.70.87:7070"
 
     static async login(email, password) {
@@ -99,8 +100,7 @@ class UserService {
     static async logout() {
         try {
             const response = await axios.post(`${UserService.BASE_URL}/auth/logout`);
-            localStorage.removeItem('token');
-            localStorage.removeItem('role');
+            localStorage.removeItem('ACCESS_TOKEN');
             return response.data;
         } catch (err) {
             throw err;
@@ -108,7 +108,7 @@ class UserService {
     }
 
     static isAuthenticated() {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('ACCESS_TOKEN')
         return !!token
     }
 

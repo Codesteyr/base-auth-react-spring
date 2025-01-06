@@ -2,6 +2,8 @@ import { React, useEffect } from "react";
 import { Navigate, Outlet } from 'react-router-dom';
 import { useStateContext } from '../../contexts/ContextProvider';
 import UserService from "../../services/UserService";
+import Navbar from "../common/Navbar";
+import Footer from "../common/Footer";
 
 export default function DefaultLayout() {
   const { token, user, setUser } = useStateContext();
@@ -16,11 +18,9 @@ export default function DefaultLayout() {
       if (!token) {
         return;
       }
-
       try {
         const userData = await UserService.getUserData(token);
         setUser({ ...userData });
-
       } catch (error) {
         // console.error(error);
       } finally {
@@ -33,8 +33,10 @@ export default function DefaultLayout() {
 
   return (
     <div>
-      <header>Авторизованный пользователь</header>
+      <Navbar/>
+      <header>Авторизованный пользователь: {user.name}</header>
       <Outlet />
+      <Footer/>
     </div>
   );
 }
