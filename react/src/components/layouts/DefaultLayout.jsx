@@ -2,6 +2,7 @@ import { React, useEffect } from "react";
 import { Navigate, Outlet } from 'react-router-dom';
 import { useStateContext } from '../../contexts/ContextProvider';
 import UserService from "../../services/UserService";
+
 import Navbar from "../common/Navbar";
 import Footer from "../common/Footer";
 
@@ -12,7 +13,6 @@ export default function DefaultLayout() {
     return <Navigate to='/login' />;
   }
 
-
   useEffect(() => {
     const fetchData = async () => {
       if (!token) {
@@ -22,9 +22,7 @@ export default function DefaultLayout() {
         const userData = await UserService.getUserData(token);
         setUser({ ...userData });
       } catch (error) {
-        // console.error(error);
-      } finally {
-        // setIsLoading(false);
+        // Handle error
       }
     };
 
@@ -32,11 +30,13 @@ export default function DefaultLayout() {
   }, [token, setUser]);
 
   return (
-    <div>
-      <Navbar/>
-      <header>Авторизованный пользователь: {user.name}</header>
-      <Outlet />
-      <Footer/>
+    <div className="layout">
+      <Navbar />
+      <main className="main-content">
+        <header>Авторизованный пользователь: {user.name}</header>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }

@@ -21,9 +21,9 @@ function LoginPage() {
             console.log(userData);
 
             if (userData.token) {
-                setToken(userData.token); 
+                setToken(userData.token);
                 setUser({ ...userData });
-                navigate('/dashboard');  
+                navigate('/dashboard');
             } else {
                 setError(userData.message);
             }
@@ -37,8 +37,6 @@ function LoginPage() {
         }
     };
 
-
-    
 
     return (
         <div className="auth-container">
