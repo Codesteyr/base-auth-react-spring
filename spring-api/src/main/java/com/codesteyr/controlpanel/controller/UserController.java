@@ -30,7 +30,6 @@ public class UserController {
 
     @PostMapping("/auth/login")
     public ResponseEntity<UserResponseDTO> login(@RequestBody UserLoginDTO req) {
-        System.out.println("Default TimeZone: " + TimeZone.getDefault().getID());
         return ResponseEntity.ok(usersService.login(req));
     }
 
