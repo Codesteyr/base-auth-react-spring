@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom';
-import DefaultLayout from './components/layouts/DefaultLayout';
+import DefaultLayout from './components/Layouts/DefaultLayout';
 import GuestLayout from './components/layouts/GuestLayout';
 import Dashboard from './components/views/Dashboard';
 import Site from './components/views/Site';

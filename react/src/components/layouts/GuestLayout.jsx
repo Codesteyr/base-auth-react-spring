@@ -11,7 +11,6 @@ export default function GuestLayout() {
 
   return (
     <div>
-      <header>Гостевой доступ</header>
       <Outlet />
     </div>
   );

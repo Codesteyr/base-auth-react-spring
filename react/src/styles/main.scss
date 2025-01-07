@@ -4,3 +4,11 @@
 @use './layouts/_default-layout';
 @use './components/_navbar';
 @use './components/_footer';
+
+
+// Component styles
+@use "./components/_auth-container";
+@use "./components/_form-group";
+@use "./components/_button";
+@use "./components/_modal";
+@use "./base/_typography";

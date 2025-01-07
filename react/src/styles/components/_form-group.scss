@@ -1,0 +1,25 @@
+.form-group {
+    margin-bottom: 1rem;
+
+    input {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+}
+
+.form-group label {
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem;
+}
+
+.form-group label input {
+    width: 25px;
+}
+
+input[type="checkbox"] {
+    margin: 0; 
+}
