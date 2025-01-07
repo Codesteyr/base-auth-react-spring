@@ -1,0 +1,30 @@
+# spring:
+#   datasource:
+#     url: jdbc:postgresql://192.168.70.87:5432/security_db
+#     driver-class-name: org.postgresql.Driver
+#     username: root
+#     password: 
+#   jpa:
+#     hibernate:
+#       ddl-auto: create
+#     show-sql: true
+#     database: postgresql
+
+server:
+  port: 7070
+
+spring:
+  application:
+    name: controlpanel
+  datasource:
+    url: jdbc:mysql://192.168.70.87:3306/control_panel
+    username: root
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  jackson:
+    time-zone: Europe/Moscow
+
+
